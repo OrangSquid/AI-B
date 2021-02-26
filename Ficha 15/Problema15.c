@@ -11,9 +11,8 @@ int main() {
     }
 
     // Última posição livre dos repetidos
-    int posição_repetidos = 0;
     for(int x = 0; x < 4; x++) {
-        for(int y = 0; y < 5; y++) {
+        for(int y = 0, posição_repetidos = 0; y < 5;  y++, posição_repetidos++) {
             // Defenir no array números o número que vai ser contadas
             // as vezes
             números[posição_repetidos] = conj_num[x][y];
@@ -23,12 +22,10 @@ int main() {
                     repetições[i]++;
                 }
             }
-            posição_repetidos++;
         }
     }
 
-    int número_moda = 0;
-    int vezes = 0;
+    int número_moda = 0, vezes = 0;
     for(int x = 0; x < 20; x++) {
         if(repetições[x] > vezes) {
             número_moda = números[x];
