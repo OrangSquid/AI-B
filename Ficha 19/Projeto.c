@@ -5,7 +5,9 @@
 int main() {
     // Sala, Sessão
     int cinema[10][5];
-    int opção;
+    int sala, sessão, bilhetes, opção;
+
+    setlocale(LC_ALL, "");
 
     for(int sala = 0; sala < 10; sala++) {
         for(int sessão = 0; sessão < 5; sessão++) {
@@ -15,18 +17,17 @@ int main() {
 
     for(;;) {
         printf("1) Sair do Programa\n");
-        printf("2) Realizar uma marcacao\n");
-        printf("3) Verificar lugares disponiveis\n");
+        wprintf(L"2) Realizar uma marcação\n");
+        wprintf(L"3) Verificar lugares disponíveis\n");
         printf("4) Novo dia\n\n");
-        printf("Opcao: ");
+        wprintf(L"Opção: ");
         scanf("%d", &opção);
         system("cls");
 
         switch(opção) {
             case 1:
                 return;
-            case 2: {
-                int bilhetes, sala, sessão;
+            case 2:
                 printf("Quantos bilhetes pretende? ");
                 scanf("%d", &bilhetes);
                 printf("Para que sala? ");
@@ -38,38 +39,36 @@ int main() {
                 if(sala < 10 && sala > -1 && sessão < 5 && sessão > -1) {
                     if(cinema[sala][sessão] + bilhetes < 30) {
                         cinema[sala][sessão] += bilhetes;
-                        printf("Marcacao efetuada com sucesso!\n\n");
+                        wprintf(L"Marcação efetuada com sucesso!\n\n");
                     }
-                    else printf("Nao há lugares suficientes para tantos bilhetes\n\n");
+                    else wprintf(L"Não há lugares suficientes para tantos bilhetes\n\n");
                 }
-                else printf("A operacao falhou!\n\n");
+                else wprintf(L"A operação falhou!\n\n");
                 break;
-            }
-            case 3: {
-                int sala;
+            case 3:
                 printf("Que sala quer ver? ");
                 scanf("%d", &sala);
                 printf("Sala %d (lugares livres)", sala);
                 sala--;
                 if(sala < 10 && sala > -1) {
                     for(int x = 0; x < 5; x++) {
-                        printf("\nSessao %d: %d", x+1, 30 - cinema[sala][x]);
+                        wprintf(L"\nSessão %d: %d", x+1, 30 - cinema[sala][x]);
                     }
                 }
+                else wprintf(L"Sala inválida!");
                 printf("\n\n");
                 break;
-            }
             case 4:
                 for(int sala = 0; sala < 10; sala++) {
                     for(int sessão = 0; sessão < 5; sessão++) {
                         cinema[sala][sessão] = 0;
                     }
                 }
-                printf("Hoje e um novo dia\n");
+                wprintf(L"Hoje é um novo dia\n");
                 printf("As salas foram limpas\n\n");
                 break;
             default:
-                printf("A opcao escolhida nao e valida\n\n");
+                wprintf(L"A opção escolhida não é válida\n\n");
         }
     }
 }
