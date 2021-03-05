@@ -27,13 +27,14 @@ int main() {
         switch(opção) {
             case 1:
                 return;
+            // Marcação
             case 2:
                 printf("Quantos bilhetes pretende? ");
                 scanf("%d", &bilhetes);
                 printf("Para que sala? ");
                 scanf("%d", &sala);
                 sala--;
-                printf("Para que sessao? ");
+                wprintf(L"Para que sessão? ");
                 scanf("%d", &sessão);
                 sessão--;
                 if(sala < 10 && sala > -1 && sessão < 5 && sessão > -1) {
@@ -45,6 +46,7 @@ int main() {
                 }
                 else wprintf(L"A operação falhou!\n\n");
                 break;
+            // Verificar salas
             case 3:
                 printf("Que sala quer ver? ");
                 scanf("%d", &sala);
@@ -58,6 +60,7 @@ int main() {
                 else wprintf(L"Sala inválida!");
                 printf("\n\n");
                 break;
+            // Limpar salas
             case 4:
                 for(int sala = 0; sala < 10; sala++) {
                     for(int sessão = 0; sessão < 5; sessão++) {
@@ -67,6 +70,7 @@ int main() {
                 wprintf(L"Hoje é um novo dia\n");
                 printf("As salas foram limpas\n\n");
                 break;
+            // Erro
             default:
                 wprintf(L"A opção escolhida não é válida\n\n");
         }
