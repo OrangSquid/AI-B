@@ -3,7 +3,7 @@
 #include <locale.h>
 
 int main() {
-	int notas_alunos[15], opcao, escolhido;
+	int notas_alunos[15], opcao, escolhido = 0;
 	float resultado_media;
 	setlocale(LC_ALL, "");
 	
@@ -13,15 +13,15 @@ int main() {
 	}
 	
 	while(1) {
-		printf("\n1) Apresentar a média da turma");
-		printf("\n2) Apresentar a nota mínima");
-		printf("\n3) Apresentar a nota máxima");
-		printf("\n4) Apresentar os alunos com classificação acima de 15");
-		printf("\n5) Apresentar o número de negativas");
-		printf("\n6) Apresentar o número de positivas");
-		printf("\n7) Apresentar a classificação de cada aluno na turma");
+		printf("\n1) Apresentar a mï¿½dia da turma");
+		printf("\n2) Apresentar a nota mï¿½nima");
+		printf("\n3) Apresentar a nota mï¿½xima");
+		printf("\n4) Apresentar os alunos com classificaï¿½ï¿½o acima de 15");
+		printf("\n5) Apresentar o nï¿½mero de negativas");
+		printf("\n6) Apresentar o nï¿½mero de positivas");
+		printf("\n7) Apresentar a classificaï¿½ï¿½o de cada aluno na turma");
 		printf("\n8) Alterar a nota de um determinado aluno");
-		printf("\n9) Sair do programa\nOpção: ");
+		printf("\n9) Sair do programa\nOpï¿½ï¿½o: ");
 		
 		scanf("%d", &opcao);
 		escolhido = 0;
@@ -31,23 +31,23 @@ int main() {
 			resultado_media = 0.0f;
 			for(int i = 0; i < 15; i++)
 				resultado_media += notas_alunos[i];
-			printf("Média: %.1f\n", resultado_media / 15);
+			printf("Mï¿½dia: %.1f\n", resultado_media / 15);
 			break;
 		case 2:
 			escolhido = notas_alunos[0];
-			printf("A nota mínima da turma é:");
+			printf("A nota mï¿½nima da turma ï¿½:");
 			for(int i = 0; i < 15; i++) 
 				if(escolhido > notas_alunos[i]) escolhido = notas_alunos[i];
 			printf("%d", escolhido);
 			break;
 		case 3:
 			escolhido = notas_alunos[0];
-			printf("A nota máxima da turma é: ");
+			printf("A nota mï¿½xima da turma ï¿½: ");
 			for(int i = 0; i < 15; i++) 
 				if(escolhido < notas_alunos[i]) escolhido = notas_alunos[i];
 			break;
 		case 4:
-			printf("Os seguintes alunos têm classicação maior que 15:\n");
+			printf("Os seguintes alunos tï¿½m classicaï¿½ï¿½o maior que 15:\n");
 			printf("Aluno  Nota");
 			for(int i = 0; i < 15; i++) {
 				if(notas_alunos[i] > 15 && i > 10) 
@@ -76,19 +76,19 @@ int main() {
 				printf("\n%d     %d", i+1, notas_alunos[i]);
 			break;
 		case 8:
-			printf("Introduza o número do aluno: ");
+			printf("Introduza o nï¿½mero do aluno: ");
 			scanf("%d", &opcao);
 			opcao--;
 			printf("\nIntroduza a nova nota: ");
 			scanf("%d", &escolhido);
 			notas_alunos[opcao] = escolhido;
-			printf("Substituído com sucesso!\n");
+			printf("Substituï¿½do com sucesso!\n");
 			break;
 		case 9:
 			exit(0);
 			break;
 		default:
-			printf("Não inseriu uma opção válida!\n");
+			printf("Nï¿½o inseriu uma opï¿½ï¿½o vï¿½lida!\n");
 		}
 		printf("\n");
 		system("pause");

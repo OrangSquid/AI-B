@@ -10,10 +10,10 @@ int main() {
         }
     }
 
-    for(int nova_linha = 0; nova_linha < 5; nova_linha++) {
-        for(int nova_coluna = 0; nova_coluna < 5; nova_coluna++) {
-            printf("%d ", matriz[nova_coluna][nova_linha]);
+    for(int nova_coluna = 0; nova_coluna < 5; nova_coluna++) {
+        for(int nova_linha = 0; nova_linha < 5; nova_linha++) {
+            printf("%d ", matriz[nova_linha][nova_coluna]);
         }
-        printf("(linha %d)\n", nova_linha+1);
+        printf("(linha %d)\n", nova_coluna+1);
     }
 }
