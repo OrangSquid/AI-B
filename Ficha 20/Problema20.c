@@ -1,5 +1,6 @@
 #include "stdio.h"
 #include "stdlib.h"
+#include "locale.h"
 
 int main() {
     int sala[20][30], lugares_livres = 600, opção;
@@ -10,12 +11,14 @@ int main() {
         }
     }
 
+    setlocale(LC_ALL, "");
+
     for(;;) {
         printf("\n1) Sair do programa");
-        printf("\n2) Realizar marcacao");
-        printf("\n3) Cancelar marcacao");
+        wprintf(L"\n2) Realizar marcação");
+        wprintf(L"\n3) Cancelar marcação");
         printf("\n4) Verificar salas");
-        printf("\nOpcao: ");
+        wprintf(L"\nOpção: ");
         scanf("%d", &opção);
         system("cls");
 
@@ -37,7 +40,7 @@ int main() {
                         printf("Reserva efectuada com sucesso!\n");
                     }
                     else {
-                        printf("A operacao falhou!\n");
+                        wprintf(L"A operação falhou!\n");
                     }
                 }
                 break;
@@ -57,7 +60,7 @@ int main() {
                         printf("Cancelamento efectuado com sucesso!\n");
                     }
                     else {
-                        printf("A operacao falhou!\n");
+                        wprintf(L"A operação falhou!\n");
                     }
                 }
                 break;
@@ -85,7 +88,7 @@ int main() {
                 printf("\nLugares Livres: %d\n", lugares_livres);
                 break;
             default:
-                printf("Opcao invalida!\n");
+                wprintf(L"Opção invalida!\n");
         }
     }
 }
