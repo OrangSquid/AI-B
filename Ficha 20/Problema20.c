@@ -34,7 +34,7 @@ int main() {
                     scanf("%d", &fila);
                     printf("Lugar do bilhete %d? ", bilhete+1);
                     scanf("%d", &lugar);
-                    if(fila >= 1 && fila <= 20 && lugar >= 1 && lugar <= 30 && lugares_livres > 0) {
+                    if(fila >= 1 && fila <= 20 && lugar >= 1 && lugar <= 30 && lugares_livres > 0 && !sala[fila-1][lugar-1]) {
                         sala[fila-1][lugar-1] = 1;
                         lugares_livres--;
                         printf("Reserva efectuada com sucesso!\n");
@@ -54,7 +54,7 @@ int main() {
                     scanf("%d", &fila);
                     printf("Lugar do bilhete %d? ", bilhete+1);
                     scanf("%d", &lugar);
-                    if(fila >= 1 && fila <= 20 && lugar >= 1 && lugar <= 30 && lugares_livres > 0) {
+                    if(fila >= 1 && fila <= 20 && lugar >= 1 && lugar <= 30 && lugares_livres > 0 && sala[fila-1][lugar-1]) {
                         sala[fila-1][lugar-1] = 0;
                         lugares_livres++;
                         printf("Cancelamento efectuado com sucesso!\n");
